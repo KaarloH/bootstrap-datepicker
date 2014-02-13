@@ -1017,11 +1017,11 @@
 			if (!date){
 				this.dates.clear();
 			}
-			else if (ix !== -1){
-				this.dates.remove(ix);
-			}
-			else {
+			else if (ix == -1){
 				this.dates.push(date);
+			}
+			else if ((typeof this.o.multidate === 'number' && this.o.multidate > 1) || this.o.multidate === true){
+				this.dates.remove(ix);
 			}
 			if (typeof this.o.multidate === 'number')
 				while (this.dates.length > this.o.multidate)
